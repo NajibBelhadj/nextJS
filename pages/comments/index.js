@@ -3,13 +3,29 @@ import { useState } from "react";
 export default function CommentsPage() {
 
     const [comments, setComments] = useState([])
+    const [comment, setComment] = useState('')
     const fetchComments = async () => {
         const res = await fetch('/api/comments');
         const data = await res.json();
         setComments(data);
     }
+    const submitComment = async () => {
+        const res = await fetch('/api/comments', {
+            method: 'POST',
+            body: JSON.stringify({ comment }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const data = await res.json()
+        setComments([...comments, data])
+    }
     return (
         <>
+            <div>
+                <input type='text' value={comment} onChange={({ target }) => setComment(target.value)} />
+                <button onClick={submitComment} >Submit comment</button>
+            </div>
             <button onClick={fetchComments}>Load comments</button>
             {
                 comments?.map(comment => {
