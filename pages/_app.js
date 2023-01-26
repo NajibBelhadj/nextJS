@@ -1,7 +1,8 @@
 import Footer from "@/components/Footer";
 import Headers from "@/components/Headers";
 import Head from "next/head";
-import '../styles/layout.css'
+import '@/styles/layout.css'
+import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }) {
   if (Component.getLayout) {
