@@ -13,10 +13,16 @@ export default function Home() {
         <div>
             <h1>Home Page</h1>
             <div>
-                <Link href="/blog">blog</Link>
+                <Link href="/blog">Blog</Link>
             </div>
             <div>
                 <Link href="/product">Products</Link>
+            </div>
+            <div>
+                <Link href="/users">Users</Link>
+            </div>
+            <div>
+                <Link href="/posts">Posts</Link>
             </div>
             <div>
                 <button onClick={handleClick}>

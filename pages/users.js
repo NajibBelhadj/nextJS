@@ -7,7 +7,7 @@ export default function UserList({ users }) {
             {
                 users.map(user => {
                     return (
-                        <div key={user.id} style={{ backgroundColor: "#000", color: "#fff" }}>
+                        <div key={user.id} style={{ backgroundColor: "rgba(12, 131, 229, 0.47)" }}>
                             <User user={user} />
                         </div>
                     )
