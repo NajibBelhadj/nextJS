@@ -1,6 +1,15 @@
+import Footer from "@/components/Footer"
 
-export default function about() {
+export default function About() {
     return (
-        <div>about</div>
+        <h1 className="content">about</h1>
+    )
+}
+About.getLayout = function PageLayout(page) {
+    return (
+        <>
+            {page}
+            <Footer />
+        </>
     )
 }

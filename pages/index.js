@@ -13,6 +13,9 @@ export default function Home() {
         <div>
             <h1>Home Page</h1>
             <div>
+                <Link href="/about">About</Link>
+            </div>
+            <div>
                 <Link href="/blog">Blog</Link>
             </div>
             <div>
