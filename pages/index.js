@@ -6,14 +6,23 @@ export default function Home() {
     const router = useRouter();
     const handleClick = () => {
         console.log("Placing your order");
-        //router.push('/product')
-        router.replace('/product')
+        router.push('/product')
+        //router.replace('/product')
     }
     return (
         <div>
             <h1>Home Page</h1>
             <div>
                 <Link href="/blog">Blog</Link>
+            </div>
+            <div>
+                <Link href="/dashboard">Dashboard</Link>
+            </div>
+            <div>
+                <Link href="/dashboard-swr">Dashboard-swr</Link>
+            </div>
+            <div>
+                <Link href="/events">Events</Link>
             </div>
             <div>
                 <Link href="/product">Products</Link>
@@ -27,6 +36,7 @@ export default function Home() {
             <div>
                 <Link href="/news">News</Link>
             </div>
+
             <div>
                 <button onClick={handleClick}>
                     Place Order
