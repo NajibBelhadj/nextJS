@@ -10,7 +10,7 @@ export default function ProductDetail({ product }) {
             <h2>
                 {product.id} {product.title} {product.price}
             </h2>
-            <p> {product.discription} </p>
+            <p> {product.description} </p>
         </div>
     )
 }
@@ -28,7 +28,8 @@ export async function getStaticProps(context) {
         return {
             props: {
                 product: data,
-            }
+            },
+            revalidate: 5
         }
     } catch (error) {
         console.log("some error here");
@@ -38,7 +39,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
 
     return {
-        paths: [{ params: { productId: '' } }],
+        paths: [{ params: { productId: '1' } }],
         fallback: true
     }
 }

@@ -32,7 +32,8 @@ export async function getStaticProps() {
         return {
             props: {
                 products: data,
-            }
+            },
+            revalidate: 5,//revalidate product evry 5s without rebuild
         }
     } catch (error) {
         console.log("some error here");
