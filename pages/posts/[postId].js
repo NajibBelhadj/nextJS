@@ -12,26 +12,39 @@ export default function DetailPost({ post }) {
 
 
 export async function getStaticPaths() {
-    return {
-        paths: [
-            {
-                params: { postId: '1' }
-            },
-            {
-                params: { postId: '2' }
-            },
-            {
-                params: { postId: '3' }
-            },
-            {
-                params: { postId: '4' }
-            },
-            {
-                params: { postId: '5' }
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const data = await res.json();
+    const paths = data.slice(0, 5).map(post => {
+        return {
+            params: {
+                postId: `${post.id}`
             }
-        ],
+        }
+    });
+    return {
+        paths: paths,
         fallback: false
     }
+    // return {
+    //     paths: [
+    //         {
+    //             params: { postId: '1' }
+    //         },
+    //         {
+    //             params: { postId: '2' }
+    //         },
+    //         {
+    //             params: { postId: '3' }
+    //         },
+    //         {
+    //             params: { postId: '4' }
+    //         },
+    //         {
+    //             params: { postId: '5' }
+    //         }
+    //     ],
+    //     fallback: false
+    // }
 }
 
 //context fih key essmou params
