@@ -20,5 +20,9 @@
     "react-dom": "18.2.0",
     "serve-json": "^1.0.4",
     "swr": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.18",
+    "@types/react": "18.0.27"
   }
 }
