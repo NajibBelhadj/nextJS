@@ -7,8 +7,8 @@ export default function PostList({ posts }) {
             {
                 posts.map(post => {
                     return (
-                        <Link href={`posts/${post.id}`} passHref>
-                            <div key={post.id} style={{ backgroundColor: "rgba(12, 131, 229, 0.47)" }}>
+                        <Link key={post.id} href={`posts/${post.id}`} passHref>
+                            <div style={{ backgroundColor: "rgba(12, 131, 229, 0.47)" }}>
                                 <h2> {post.id} {post.title} </h2>
                             </div>
                         </Link>
