@@ -1,3 +1,5 @@
+import User from "@/components/user";
+
 export default function UserList({ users }) {
     return (
         <>
@@ -6,10 +8,7 @@ export default function UserList({ users }) {
                 users.map(user => {
                     return (
                         <div key={user.id} style={{ backgroundColor: "#000", color: "#fff" }}>
-                            <p> name: {user.name} </p>
-                            <p> username: {user.username} </p>
-                            <p> email: {user.email} </p>
-                            <p> street: {user.address?.street} </p>
+                            <User user={user} />
                         </div>
                     )
                 })
