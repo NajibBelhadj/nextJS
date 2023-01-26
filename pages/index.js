@@ -25,6 +25,9 @@ export default function Home() {
                 <Link href="/posts">Posts</Link>
             </div>
             <div>
+                <Link href="/news">News</Link>
+            </div>
+            <div>
                 <button onClick={handleClick}>
                     Place Order
                 </button>
