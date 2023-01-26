@@ -28,6 +28,9 @@ export default function Home() {
                 <Link href="/product">Products</Link>
             </div>
             <div>
+                <Link href="/comments">Comments</Link>
+            </div>
+            <div>
                 <Link href="/users">Users</Link>
             </div>
             <div>
