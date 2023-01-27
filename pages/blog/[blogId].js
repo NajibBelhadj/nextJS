@@ -1,8 +1,4 @@
-
-
 import Head from 'next/head'
-import React from 'react'
-
 export default function Blog({ title, description }) {
     return (
         <>
@@ -15,11 +11,10 @@ export default function Blog({ title, description }) {
     )
 }
 
-
-
-
-
 export async function getServerSideProps() {
+    const user = process.env.DB_USER || ''
+    const password = process.env.Db_PASSWORD || ''
+    //console.log(`connecting to account with user: ${user} and password: ${password}`);
     return {
         props: {
             title: 'Article Title',
