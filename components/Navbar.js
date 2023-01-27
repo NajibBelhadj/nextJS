@@ -1,13 +1,15 @@
 import Link from "next/link";
-import { signIn, signOut } from 'next-auth/react'
+import { signIn, signOut, useSession } from 'next-auth/react'
 
 export default function Navbar() {
+    const { data: session, status } = useSession()
+
     return (
         <nav className="header">
             <h1 className="logo">
                 <a href="#">NextAuth</a>
             </h1>
-            <ul className={`main-nav`}>
+            <ul className={`main-nav ${!session && !status === "unauthenticated" ? 'loading' : 'loaded'}`}>
                 <li>
                     <Link href="/about">About</Link>
                 </li>
@@ -41,25 +43,32 @@ export default function Navbar() {
                 <li>
                     <Link href="/todo">ToDo</Link>
                 </li>
-                <li>
-                    <Link href='/api/auth/signin' onClick={e => {
-                        e.preventDefault()
-                        signIn(('github'))
-                    }}>
-                        Sign In
-                    </Link>
-                </li>
-                <li>
-                    <Link href='/api/auth/signout' onClick={e => {
-                        e.preventDefault()
-                        signOut()
-                    }}>
-                        Sign Out
-                    </Link>
-                </li>
+                {!session && status === "unauthenticated" && (
+                    <li>
+                        <Link href='/api/auth/signin' onClick={e => {
+                            e.preventDefault()
+                            signIn(('github'))
+                        }}>
+                            Sign In
+                        </Link>
+                    </li>
+                )}
+
+                {
+                    session && (
+                        <li>
+                            <Link href='/api/auth/signout' onClick={e => {
+                                e.preventDefault()
+                                signOut()
+                            }}>
+                                Sign Out
+                            </Link>
+                        </li>
+                    )
+                }
 
             </ul>
 
-        </nav>
+        </nav >
     )
 }
