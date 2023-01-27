@@ -3,6 +3,8 @@ import Headers from "@/components/Headers";
 import Head from "next/head";
 import '@/styles/layout.css'
 import '@/styles/globals.css'
+import Navbar from "@/components/Navbar";
+import "@/components/Navbar.css";
 
 export default function App({ Component, pageProps }) {
   if (Component.getLayout) {
@@ -17,6 +19,7 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Headers />
+      <Navbar />
       <Component {...pageProps} />
       <Footer />
     </>
