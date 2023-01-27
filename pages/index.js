@@ -42,6 +42,9 @@ export default function Home() {
             <div>
                 <Link href="/news">News</Link>
             </div>
+            <div>
+                <Link href="/todo">ToDo</Link>
+            </div>
 
             <div>
                 <button onClick={handleClick}>
