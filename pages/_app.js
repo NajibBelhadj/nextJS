@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Headers />
-      <SessionProvider>
+      <SessionProvider session={pageProps.session}>
         <Navbar />
         <Component {...pageProps} />
       </SessionProvider>

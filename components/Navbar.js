@@ -10,6 +10,10 @@ export default function Navbar() {
                 <a href="#">NextAuth</a>
             </h1>
             <ul className={`main-nav ${!session && !status === "unauthenticated" ? 'loading' : 'loaded'}`}>
+
+                <li>
+                    <Link href="/profile">Profile</Link>
+                </li>
                 {
                     session && (
                         <>

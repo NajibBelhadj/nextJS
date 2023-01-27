@@ -1,6 +1,17 @@
+import { getSession } from "next-auth/react"
 
-export default function profile() {
+export default function Profile({ data }) {
+
     return (
-        <div>profile</div>
+        <h1>profile {data}</h1>
     )
+}
+export async function getServerSideProps(context) {
+    const session = await getSession(context);
+    return {
+        props: {
+            session,
+            data: session ? 'personalized Profile' : 'Free Profile'
+        }
+    }
 }
